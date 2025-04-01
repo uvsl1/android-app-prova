@@ -17,7 +17,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonSair: Button
     lateinit var buttonExibir: Button
 
-    private val listaDeProdutos = mutableListOf<Produto>()
+    companion object {
+        val listaDeProdutos = mutableListOf<Produto>()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

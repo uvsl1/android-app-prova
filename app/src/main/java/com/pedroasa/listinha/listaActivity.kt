@@ -25,7 +25,7 @@ class listaActivity : AppCompatActivity() {
         buttonVoltar = findViewById(R.id.buttonVoltar)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.FragmentsMain, produtosFragment())
+            .replace(R.id.FragmentsMain, produtoFragment())
             .commit()
 
 
@@ -33,10 +33,10 @@ class listaActivity : AppCompatActivity() {
         val buttonListas: Button = findViewById(R.id.buttonLimpeza)
         val buttonCarrinho: Button = findViewById(R.id.buttonFrios)
 
-        replaceFragment(produtosFragment())
+        replaceFragment(produtoFragment())
 
         buttonProdutos.setOnClickListener {
-            replaceFragment(produtosFragment())
+            replaceFragment(produtoFragment())
         }
 
         buttonListas.setOnClickListener {
