@@ -5,55 +5,38 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.pedroasa.listinha.adapters.ProdutoAdapter
+import com.pedroasa.listinha.models.Produto
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private val listaDeFrios = mutableListOf(
+    Produto("Presunto", "15.00", "5"),
+    Produto("Queijo Mussarela", "20.50", "7"),
+    Produto("Peito de Peru", "18.30", "3"),
+    Produto("Mortadela", "10.80", "10"),
+    Produto("Queijo Prato", "22.40", "4"),
+    Produto("Salame", "25.00", "6"),
+    Produto("Linguica Calabresa", "12.90", "8"),
+    Produto("Queijo Cottage", "13.70", "5"),
+    Produto("Bacon", "8.50", "12"),
+    Produto("Chester", "30.00", "2")
+)
 
-/**
- * A simple [Fragment] subclass.
- * Use the [friosFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class friosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frios, container, false)
-    }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment friosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            friosFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_frios, container, false)
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.frios)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = ProdutoAdapter(listaDeFrios)
+
+        return view
+
     }
 }

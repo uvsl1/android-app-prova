@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,15 +20,11 @@ class MainActivity : AppCompatActivity() {
     private val listaDeProdutos = mutableListOf<Produto>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-
         Log.i("ciclo_vida", "onCreate")
-
         enableEdgeToEdge()
 
         setContentView(R.layout.activity_main)
-
 
         buttonAbrir = findViewById(R.id.button_Abrir)
         buttonSair = findViewById(R.id.button_Sair)
@@ -53,13 +48,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonSair.setOnClickListener {
-
             finish()
-
         }
 
         buttonExibir.setOnClickListener {
-
             val intent = Intent(this, listaActivity::class.java)
             startActivity(intent)
         }
@@ -71,14 +63,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     override fun onStart() {
-
         super.onStart()
-
         Log.i("ciclo_vida", "onStart")
-
     }
 
     override fun onResume() {
@@ -86,44 +73,23 @@ class MainActivity : AppCompatActivity() {
         Log.i("ciclo_vida", "onResume")
     }
 
-
-
     override fun onPause() {
-
         super.onPause()
-
         Log.i("ciclo_vida", "onPause")
-
     }
-
-
 
     override fun onStop() {
-
         super.onStop()
-
         Log.i("ciclo_vida", "onStop")
-
     }
-
-
 
     override fun onRestart() {
-
         super.onRestart()
-
         Log.i("ciclo_vida", "onRestart")
-
     }
-
-
 
     override fun onDestroy() {
-
         Log.i("ciclo_vida", "onDestroy")
-
         super.onDestroy()
-
     }
-
 }
